@@ -1,9 +1,9 @@
-from linked_list import linked_list
+from linked_list import Linked_List
 def check_linked_list_cycle(first_node):
 	"""Returns True if the linked list is a circular linked list, else
 	it returns False. 
-	>>>check_linked_list_cycle(5)
-	True
+	>>> check_linked_list_cycle(9)
+	False
 	"""
 	slow_runner = first_node
 	fast_runner = first_node

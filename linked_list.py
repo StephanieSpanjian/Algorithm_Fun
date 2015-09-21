@@ -58,4 +58,3 @@ if __name__ == '__main__':
 	ll.add_node(93)
 	ll.add_node(933)
 	ll.print_list()
-	return ll
