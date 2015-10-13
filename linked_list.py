@@ -8,7 +8,7 @@ class Linked_List(object):
 	def __init__(self):
 		self.head = None
 		self.tail = None
-
+	
 	def print_list(self):
 		node = self.head
 
@@ -21,12 +21,13 @@ class Linked_List(object):
 
 		while current is not None:
 			if current.data == data:
-				return True
+				return data
 			current = current.next
 		return False
 
 	def add_node(self, data):
 		new_node = Node(data)
+		node = self.first_node
 
 		if self.head == None:
 			self.head = new_node
@@ -49,6 +50,25 @@ class Linked_List(object):
 		else:
 			current.next = current.next.next		
 
+	def check_linked_list_cycle(self, first_node):
+		# """Returns True if the linked list is a circular linked list, else
+		# it returns False. 
+		# >>> check_linked_list_cycle(first_node)
+		# False
+		# """
+		ll = Linked_List()
+		# first_node = ll.first_node()
+		node = self.first_node
+		slow_runner = first_node
+		fast_runner = first_node
+
+		while fast_runner != None and fast_runner.next != None:
+			slow_runner = slow_runner.next
+			fast_runner = fast_runner.next.next
+
+			if fast_runner == slow_runner:
+				return True
+		return False	
 
 
 if __name__ == '__main__':
@@ -58,3 +78,4 @@ if __name__ == '__main__':
 	ll.add_node(93)
 	ll.add_node(933)
 	ll.print_list()
+	ll.check_linked_list_cycle()
