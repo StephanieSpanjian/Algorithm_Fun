@@ -1,27 +1,15 @@
-list_ = "bill, bell, ball, bull"
-n = 2
+from operator import itemgetter
 
-def sort_it(list_, n):
+list_ = 'a, ba, cat, wax, yellow, zephyr'
+n = 1
+
+def sort_it(list_1, n):
 	"""Return a list given in string format sorted by the nth letter in the words.
-	>>> sort_it("bill, bell, ball, bull", 2)
-	'ball, bell, bill, bull'
+	>>> sort_it('a, a, ba, a, cat, wax, a, yellow, zephyr', 1)
+	'a, ba, cat, wax, yellow, zephyr'
 	"""
     #your code here
-	list_1 = list_.split(", ")
-
-	list_2_spliced = []
-	for item in list_1:
-		list_2_spliced.append(item[(n-1):])
-	list_2_sorted = sorted(list_2_spliced)
-
-	list_3_sorted = []
-	for item_2 in list_2_sorted:
-		for item_1 in list_1:
-			if item_1[(n-1):] in item_2:
-				list_3_sorted.append(item_1)
-
-	list_3_joined = ", ".join(list_3_sorted)
-	return list_3_joined
+	return ', '.join(sorted(list_1.split(', '), key=itemgetter(n - 1)))
 
 if __name__ == "__main__":
 	import doctest
